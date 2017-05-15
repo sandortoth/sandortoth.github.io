@@ -1,37 +1,36 @@
-![Docker logo](https://raw.githubusercontent.com/sandortoth/presentations/docker-presentation/img/docker_logo.png)
+![Docker logo](http://sandortoth.github.io/docker-presentation/img/docker_logo.png)
 
 ## Docker for Developers - Introduction
 
+###### Sandor Toth
 ###### Under [Attribution 4.0 International](http://creativecommons.org/licenses/by/4.0/) license.
 ________________________
+
 ---
 
 ### Topics
 
 #### What is Docker
-##### Docker vs VMs
-##### Docker History
-##### Docker Benefits
-##### Common Docker usages
-##### Technology behind Docker
-##### The Docker architecture
+###### Docker vs VMs
+###### Docker History
+###### Docker Benefits
+###### Common Docker usages
+###### Technology behind Docker
+###### The Docker architecture
+
+---
+
+### Topics
 
 #### Docker components
-##### Docker engine
+###### Docker engine
 ###### Docker client
 ###### Docker daemon
-##### Docker machine
-##### Docker compose
-##### Docker swarm
-##### Docker distribution
-##### The docker image
-##### The docker container
-#### Docker examples
-#### Docker alternatives
-#### Docker alternatives
-
-
-
+###### Docker distribution
+###### The docker image
+###### The docker container
+##### Docker machine / compose / swarm
+##### Docker examples / alternatives
 
 ---
 
@@ -64,10 +63,68 @@ ________________________
  - dotCloud (now Docker Inc)
  - March 2013
  - Apache 2.0 license
- - 30k stars on Github
- - 260k public repositories on hub.docker.com
- - Docker Inc acquires everyone <small><sup>TM</sup></small>
- - Docker joins the "[Open Container Initiative](https://www.opencontainers.org/)", June 2015
+ - 40K+ stars on Github
+ - 2000+ contributors
+ - 260K+ public repositories on hub.docker.com
+ - 240 Meetups in 70 countries
+ - 95K Meetup members
+
+---
+
+### The challenge
+
+![The challenge](http://sandortoth.github.io/docker-presentation/img/thechallenge.png)
+
+---
+
+### The matrix from hell
+![The matrix from hell](http://sandortoth.github.io/docker-presentation/img/matrixfromhell.png)
+
+---
+
+### Cargo Transport Pre-1960
+![The matrix from hell](http://sandortoth.github.io/docker-presentation/img/cargotransport.png)
+
+---
+
+### Also a Matrix from Hell
+![The matrix from hell](http://sandortoth.github.io/docker-presentation/img/anothermatrixfromhell.png)
+
+---
+
+### Solution: Intermodal Shipping Container
+![The matrix from hell](http://sandortoth.github.io/docker-presentation/img/solutionintermodalcontainer.png)
+
+---
+
+### Docker is a Container System for Code
+![The matrix from hell](http://sandortoth.github.io/docker-presentation/img/dockercontainersystemforcode.png)
+
+---
+
+### Docker Eliminates the Matrix from Hell
+![The matrix from hell](http://sandortoth.github.io/docker-presentation/img/eliminatematrixfromhell.png)
+
+---
+
+### Why Developers Care
+
+ - Build once... (finally) run anywhere
+ - A clean, safe, hygienic, portable runtime environment for your app.
+ - No worries about missing dependencies, packages and other pain points during subsequent deployments.
+ - Run each app in its own isolated container, so you can run various versions of libraries and other dependencies for each app without worrying.
+ - Automate testing, integration, packaging...anything you can script.
+
+---
+
+### Why DevOps Care
+
+ - Configure once... run anything
+ - Make the entire lifecycle more efficient, consistent, and repeatable
+ - Eliminate inconsistencies between development, test, production, and customer environments.
+ - Support segregation of duties.
+ - Significantly improves the speed and reliability of continuous deployment and continuous integration systems.
+ - Because the containers are so lightweight, address significant performance, costs, deployment, and portability issues normally associated with VMs.
 
 ---
 
