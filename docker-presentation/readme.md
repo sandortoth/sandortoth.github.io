@@ -426,17 +426,17 @@ git clone git@github.com:sandortoth/docker-presentation.git
 cd docker-presentation
 
 docker pull nimmis/alpine-apache
-docker build -t tplcom/docker-presentation .
+docker build -t sandortoth/docker-presentation .
 
 // Test it
 docker run -itd --name docker_presentation \
            -p 8480:80 \
-           tplcom/docker-presentation
+           sandortoth/docker-presentation
 
 // Open http://localhost:8480, you should see this presentation
 
 // Push it on the hub.docker.com
-docker push tplcom/docker-presentation
+docker push sandortoth/docker-presentation
 ```
 
 ---
