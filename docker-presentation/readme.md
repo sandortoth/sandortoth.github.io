@@ -71,6 +71,12 @@ ________________________
 
 ---
 
+### Applications are changing
+
+![The challenge](http://sandortoth.github.io/docker-presentation/img/applicationarechanging.png)
+
+---
+
 ### The challenge
 
 ![The challenge](http://sandortoth.github.io/docker-presentation/img/thechallenge.png)
@@ -156,17 +162,15 @@ ________________________
 
 ---
 
-### Technology behind Docker
+### Docker vs VMs (once again)
 
- - Linux [x86-64](https://www.wikiwand.com/en/X86-64)
- - [Go](https://golang.org/) language
- - [Client - Server](https://www.wikiwand.com/en/Client%E2%80%93server_model) (deamon) architecture
- - Union file systems ([UnionFS](https://www.wikiwand.com/en/UnionFS): AUFS, btrfs, vfs etc)
- - [Namespaces](https://en.wikipedia.org/wiki/Cgroups#NAMESPACE-ISOLATION) (pid, net, ipc, mnt, uts)
- - Control Groups ([cgroups](https://www.wikiwand.com/en/Cgroups))
- - Container format ([libcontainer](https://github.com/opencontainers/runc/tree/master/libcontainer "Libcontainer provides a native Go implementation for creating containers with namespaces, cgroups, capabilities, and filesystem access controls. It allows you to manage the lifecycle of the container performing additional operations after the container is created."))
+![Docker vs traditional Virtualization](https://insights.sei.cmu.edu/assets/content/VM-Diagram.png)
 
-###### See more at [Understanding docker](https://docs.docker.com/engine/understanding-docker/)
+---
+
+### Why are Docker Containers Lightweight?
+
+![Why are Docker Containers lightweight?](http://sandortoth.github.io/docker-presentation/img/containerslightweight.png)
 
 ---
 
@@ -198,20 +202,22 @@ and communicates back and forth with a Docker daemon.
 
 ### Docker daemon
 
-It runs on a host machine. The user does not directly interact with the daemon,
-but instead through the Docker client with the RESTful api or sockets.
+- It runs on a host machine. The user does not directly interacts with the daemon, but instead through the Docker client with the RESTful API or sockets.
+- The Docker daemon (dockerd) listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes.
 
 ---
 
 ### Docker engine
 
-A Client with a Daemon as also as the docker-compose tool. Usually referred simply as "docker".
+The daemon creates and manages Docker objects, such as images, containers, networks, and volumes.
+
+![Docker Engine](http://sandortoth.github.io/docker-presentation/img/dockerengine.png)
 
 ---
 
 ### Docker machine
 
-![Docker machine logo](https://raw.githubusercontent.com/sandortoth/docker-presentation/img/docker_machine.png)
+![Docker machine logo](http://sandortoth.github.io/docker-presentation/img/docker_machine.png)
 
 A tool which makes it really easy to create Docker hosts on your computer,
 on cloud providers and inside your own data center.
@@ -222,7 +228,7 @@ Required for Mac, Windows users.
 
 ### Docker compose
 
-![Docker compose logo](https://raw.githubusercontent.com/sandortoth/docker-presentation/img/docker_compose.png)
+![Docker compose logo](http://sandortoth.github.io/docker-presentation/img/docker_compose.png)
 
 A tool for defining and running complex applications with Docker
 (eg a multi-container application) with a single file.
@@ -231,7 +237,7 @@ A tool for defining and running complex applications with Docker
 
 ### Docker swarm
 
-![Docker swarm logo](https://raw.githubusercontent.com/sandortoth/docker-presentation/img/docker_swarm.png)
+![Docker swarm logo](http://sandortoth.github.io/docker-presentation/img/docker_swarm.png)
 
 A native clustering tool for Docker. Swarm pools together several Docker
 hosts and exposes them as a single virtual Docker host. It scale up to multiple hosts.
@@ -240,37 +246,21 @@ hosts and exposes them as a single virtual Docker host. It scale up to multiple 
 
 ### Docker distribution
 
-![Docker distribution logo](https://raw.githubusercontent.com/sandortoth/docker-presentation/img/docker_distribution.png)
+![Docker distribution logo](http://sandortoth.github.io/docker-presentation/img/docker_distribution.png)
 
 A (hosted) service containing repositories of images which responds to the Registry API.
 
 ---
 
-### Steps of a Docker workflow
-
-```
-docker run -i -t -d ubuntu:15.04 /bin/bash
-```
-
- - Pulls the ubuntu:15.04 [image](https://docs.docker.com/engine/userguide/containers/dockerimages/ "A read-only layer that is the base of your container. It can have a parent image to abstract away the more basic filesystem snapshot.") from the [registry](https://docs.docker.com/registry/ "The central place where all publicly published images live. You can search it, upload your images there and when you pull a docker image, it comes the repository/hub.")
- - Creates a new [container](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/ "A runnable instance of the image, basically it is a process isolated by docker that runs on top of the filesystem that an image provides.")
- - Allocates a filesystem and mounts a read-write [layer](https://docs.docker.com/engine/reference/glossary/#filesystem "A set of read-only files to provision the system. Think of a layer as a read only snapshot of the filesystem.")
- - Allocates a [network/bridge interface](https://www.wikiwand.com/en/Bridging_%28networking%29 "")
- - Sets up an [IP address](https://www.wikiwand.com/en/IP_address "An Internet Protocol address (IP address) is a numerical label assigned to each device (e.g., computer, printer) participating in a computer network that uses the Internet Protocol for communication.")
- - Executes a process that you specify (``` /bin/bash ```)
- - Captures and provides application output
-
----
-
 ### The docker image
-
-![ubuntu:15.04 image](https://docs.docker.com/engine/userguide/storagedriver/images/image-layers.jpg "A read-only layer that is the base of your container. It can have a parent image to abstract away the more basic filesystem snapshot. Each Docker image references a list of read-only layers that represent filesystem differences. Layers are stacked on top of each other to form a base for a container’s root filesystem.")
+![ubuntu:15.04 image](https://docs.docker.com/engine/userguide/storagedriver/images/image-layers.jpg) 
+#### An image is a read-only template with instructions for creating a Docker container. Often, an image is based on another image, with some additional customization. Each instruction in a Dockerfile creates a layer in the image.
 
 ---
 
 ### The docker container
-
-![container using ubuntu:15.04 image](https://docs.docker.com/engine/userguide/storagedriver/images/container-layers.jpg "A runnable instance of the image, basically it is a process isolated by docker that runs on top of the filesystem that an image provides. For each containers there is a new, thin, writable layer - container layer - on top of the underlying stack (image).")
+![container using ubuntu:15.04 image](https://docs.docker.com/engine/userguide/storagedriver/images/container-layers.jpg)
+##### A container is a runnable instance of an image. A container is defined by its image as well as any configuration options you provide to it when you create or run it.
 
 ---
 
@@ -278,9 +268,8 @@ docker run -i -t -d ubuntu:15.04 /bin/bash
 
 > A Dockerfile is a text document that contains all the commands a user could call on the command line to create an image.
 
- - [Dockerfile with inline comments](https://github.com/sandortoth/docker-presentation/blob/gh-pages/examples/dockerfile/Dockerfile) just for education
+ - [Dockerfile with inline comments](https://github.com/sandortoth/sandortoth.github.io/blob/master/docker-presentation/examples/dockerfile/Dockerfile) just for education
  - [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) on docker docs
- - Official Dockerfiles ([rails](https://github.com/docker-library/rails/blob/master/Dockerfile), [nodejs](https://github.com/ReadyTalk/nodejs-docker/blob/master/base/Dockerfile), [django](https://github.com/docker-library/django/blob/master/3.4/Dockerfile), [Drupal](https://github.com/docker-library/drupal/blob/master/8.1/fpm/Dockerfile))
 
 ---
 
@@ -589,12 +578,11 @@ There are known best practices (see a list at [examples/tips](https://github.com
 
 ### Questions?
 
-![Pythons over Docker!](https://raw.githubusercontent.com/sandortoth/docker-presentation/gh-pages/img/docker_logo.png)
-
-[Review this presentation](https://goo.gl/lkau9t)
+[Review this presentation](https://)
 
 ###### In this presentation I have used [docker 1.11.1](https://github.com/docker/docker/releases/tag/v1.11.1) and [dry](https://github.com/moncho/dry).
-###### Presentation material 'liberally borrowed' from [sandortoth](https://github.com/sandortoth/docker-presentation) and [pointful](https://github.com/pointful/docker-intro). Thanks guys!
+###### Presentation material 'liberally borrowed' from [theodorosploumis](https://github.com/theodorosploumis/docker-presentation), [pointful](https://github.com/pointful/docker-intro)
+###### and [Docker Inc.](https://www.slideshare.net/Docker/docker-birthday-3-intro-to-docker-slides). Thanks guys!
 
 
 ---
