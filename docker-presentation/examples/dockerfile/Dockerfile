@@ -25,7 +25,7 @@ FROM ubuntu:15.10
 # It should come nonetheless after FROM.
 #
 # Usage: MAINTAINER <name and/or email>
-MAINTAINER TheodorosPloumis <me@theodorosploumis.com>
+MAINTAINER Sandor Toth <sandor.toth@endava.com>
 
 # ENV
 #
