@@ -405,7 +405,7 @@ docker inspect -f "{{ .HostConfig.Links }}" drupal_example
 
 ### Example: Using Docker Compose
 
-Let's create a Drupal app with [docker-compose.yml](https://github.com/sandortoth/docker-presentation/blob/gh-pages/examples/docker-compose/docker-compose.yml)
+Let's create a Drupal app with [docker-compose.yml](https://github.com/sandortoth/sandortoth.github.io/blob/master/docker-presentation/examples/docker-compose/docker-compose.yml)
 
 ```
 cd ~/Docker-presentation
@@ -484,54 +484,9 @@ docker load < myapache_image.tar
 
 ---
 
-### Example: GUI with Docker
-
-See examples at [hub.docker.com/u/jess](https://hub.docker.com/u/jess/)
-
-```
-// Before staring we should grant access to everyone on the X Server (locally)
-// Otherwise the containers below will never start and they will not be able to use x11
-xhost +
-
-// Libreoffice
-docker run  -d \
-            -v /etc/localtime:/etc/localtime:ro \
-            -v /tmp/.X11-unix:/tmp/.X11-unix \
-            -e DISPLAY=unix$DISPLAY \
-            -e GDK_SCALE \
-            -e GDK_DPI_SCALE \
-            --name libreoffice \
-            jess/libreoffice
-
-// SublimeText 3
-docker run -it \
-           -v $HOME/.config/sublime-text-3/:/root/.config/sublime-text-3 \
-           -v /tmp/.X11-unix:/tmp/.X11-unix \
-           -e DISPLAY=$DISPLAY \
-           --name sublime_text \
-           jess/sublime-text-3
-
-// Audacity (sound in docker container)
-docker run  -d \
-            -v /etc/localtime:/etc/localtime:ro \
-            -v /tmp/.X11-unix:/tmp/.X11-unix \
-            -e DISPLAY=unix$DISPLAY \
-            -e QT_DEVICE_PIXEL_RATIO \
-            --device /dev/snd \
-            --group-add audio \
-            --name audacity \
-            jess/audacity
-
-// Disable access to x11
-xhost -
-
-```
-
----
-
 ### Docker tips
 
-There are known best practices (see a list at [examples/tips](https://github.com/sandortoth/docker-presentation/tree/gh-pages/examples/tips))
+There are known best practices (see a list at [examples/tips](https://github.com/sandortoth/sandortoth.github.io/blob/master/docker-presentation/examples/tips))
 
 - Optimize containers (check [fromlatest.io](https://www.fromlatest.io/) and [imagelayers.io](https://imagelayers.io))
 - Create your own tiny base
@@ -552,17 +507,6 @@ There are known best practices (see a list at [examples/tips](https://github.com
 | Docker registries | [Portus](http://port.us.org/), [Docker Distribution](https://github.com/docker/distribution), [hub.docker.com](http://hub.docker.com), [quay.io](https://quay.io), [Google container registry](https://cloud.google.com/tools/container-registry/), [Artifactory](https://www.jfrog.com/artifactory/), [projectatomic.io](http://www.projectatomic.io/) |
 | PaaS with Docker | [Rancher](http://rancher.com/), [Tsuru](https://tsuru.io/), [dokku](https://github.com/dokku/dokku), [flynn](https://flynn.io/),  [Octohost](http://octohost.io/), [DEIS](http://deis.io/) |
 | OS made of Containers | [RancherOS](http://rancher.com/rancher-os/) |
-
----
-
-### Docker Alternatives
-
-- [Rocket, rkt](https://github.com/coreos/rkt)
-- [Linux Containers, LXC](https://linuxcontainers.org/)
-- [Linux container hypervisor, LXD](http://www.ubuntu.com/cloud/lxd)
-- [BSD Jails](https://www.freebsd.org/doc/handbook/jails.html)
-- [Solaris Zones](http://oracle.com/solaris)
-- [drawbridge](http://research.microsoft.com/en-us/projects/drawbridge/)
 
 ---
 
