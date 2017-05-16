@@ -312,7 +312,6 @@ docker rm [CONTAINER]
 - Scale containers with docker-compose
 - Share an image (share this presentation)
 - Package an app with its environment
-- Screen and sound within containers (x-forward)
 
 ---
 
