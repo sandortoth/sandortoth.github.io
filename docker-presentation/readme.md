@@ -211,7 +211,7 @@ and communicates back and forth with a Docker daemon.
 
 The daemon creates and manages Docker objects, such as images, containers, networks, and volumes.
 
-![Docker Engine](http://sandortoth.github.io/docker-presentation/img/dockerengine.png)
+![Docker Engine](http://sandortoth.github.io/docker-presentation/img/dockerdeamon.png)
 
 ---
 
